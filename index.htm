@@ -1,0 +1,99 @@
+import React from "react";
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+
+export default function Website() {
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-black via-zinc-950 to-black text-white">
+      {/* Glow */}
+      <div className="fixed inset-0 pointer-events-none">
+        <div className="absolute top-[-120px] left-1/2 -translate-x-1/2 w-[650px] h-[650px] bg-white/5 blur-[140px] rounded-full" />
+      </div>
+
+      {/* HERO */}
+      <section className="relative text-center py-28 px-6">
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-4xl md:text-6xl font-semibold tracking-tight mb-6 leading-tight"
+        >
+          WE Help Businesses Get <span className="bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">High-Quality Leads</span> Through Personal Branding
+        </motion.h1>
+
+        <p className="text-lg text-gray-400 mb-10 max-w-2xl mx-auto">
+          Attract buyers, sellers, and investors consistently without relying on ads or cold outreach.
+        </p>
+
+        <Button className="bg-white text-black hover:bg-gray-200 text-lg px-8 py-5 rounded-2xl shadow-xl">
+          Book a Free Strategy With Us!
+        </Button>
+      </section>
+
+      <div className="h-px bg-gradient-to-r from-transparent via-zinc-700 to-transparent mx-10" />
+
+      {/* SERVICES */}
+      <section className="py-24 px-6 grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        {[
+          {
+            title: "LETSFORGE Lead Generation",
+            desc: "Build a system that brings in buyers and sellers every week."
+          },
+          {
+            title: "Authority Personal Branding",
+            desc: "Position yourself as the go-to expert in your local market."
+          },
+          {
+            title: "Content That Converts",
+            desc: "Turn property content into inbound client inquiries."
+          }
+        ].map((item, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: i * 0.2 }}
+          >
+            <Card className="bg-gradient-to-b from-zinc-900 to-zinc-950 border border-zinc-800 rounded-3xl shadow-lg hover:shadow-2xl transition-all">
+              <CardContent className="p-8">
+                <h3 className="text-xl font-medium mb-4">{item.title}</h3>
+                <p className="text-gray-400">{item.desc}</p>
+              </CardContent>
+            </Card>
+          </motion.div>
+        ))}
+      </section>
+
+      {/* RESULTS */}
+      <section className="text-center py-24 px-6">
+        <h2 className="text-3xl md:text-4xl font-semibold mb-6 tracking-tight">
+          Results for Real Estate Clients
+        </h2>
+        <p className="text-gray-400 text-lg">
+          50+ Qualified Buyer Leads · 30+ Seller Inquiries · Consistent Deal Pipeline
+        </p>
+      </section>
+
+      {/* CTA */}
+      <section className="text-center py-28 px-6">
+        <div className="max-w-3xl mx-auto bg-gradient-to-b from-zinc-900 to-black border border-zinc-800 rounded-3xl p-12 shadow-2xl">
+          <h2 className="text-3xl md:text-4xl font-semibold mb-6">
+            Want More Real Estate Deals Without Chasing Leads?
+          </h2>
+          <p className="text-gray-400 mb-8">
+            Let’s build your personal brand into a client-generating machine.
+          </p>
+          <Button className="bg-white text-black hover:bg-gray-200 text-lg px-8 py-5 rounded-2xl">
+            Get Started
+          </Button>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="text-center py-10 text-gray-600 text-sm">
+        © {new Date().getFullYear()} Your Name — Real Estate Lead Specialist
+      </footer>
+    </div>
+  );
+}
